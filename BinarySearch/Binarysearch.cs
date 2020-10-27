@@ -51,8 +51,6 @@ namespace BinarySearch
             var temp = value;
             var maxSize = 0;
             var stk = new Stack<MyBinaryNode<T>>();
-
-
             while (temp != null || stk.Count != 0)
             {
                 var size = 0;
@@ -63,11 +61,28 @@ namespace BinarySearch
                     size++;
                 }
                 temp = stk.Pop();
-
                 temp = temp.Rightside;
                 maxSize = maxSize < size ? size : maxSize;
             }
             return maxSize - 1;
+        }
+        public void Search(T data)
+        {
+            if (start.data.CompareTo(data) == 0)
+            {
+                Console.WriteLine("Found");
+                return;
+            }
+            if (start.data.CompareTo(data) < 0)
+            {
+                start = start.Rightside;
+                Search(data);
+            }
+            else
+            {
+                start = start.leftside;
+                Search(data);
+            }
         }
         public void Display(MyBinaryNode<T> start)
         {

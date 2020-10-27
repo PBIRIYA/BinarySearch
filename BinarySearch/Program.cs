@@ -19,6 +19,7 @@ namespace BinarySearch
                 bst.Add(num);
             }
             bst.Display(bst.value);
+            bst.Search(5);
             Console.WriteLine(bst.Size());
         }
     }
